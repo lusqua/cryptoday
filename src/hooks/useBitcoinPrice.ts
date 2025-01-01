@@ -14,14 +14,23 @@ const initialData: BitcoinData = {
   lastUpdated: new Date().toLocaleString()
 }
 
-export function useBitcoinPrice() {
-  const [data, setData] = useState<BitcoinData>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('bitcoinData')
-      return saved ? JSON.parse(saved) : initialData
+const getStoredBitcoinData = () => {
+  if (typeof window === 'undefined') return initialData
+  
+  try {
+    const stored = localStorage.getItem('bitcoinData')
+    if (stored) {
+      return JSON.parse(stored)
     }
-    return initialData
-  })
+  } catch (err) {
+    console.error('Failed to parse stored bitcoin data:', err)
+  }
+  
+  return initialData
+}
+
+export function useBitcoinPrice() {
+  const [data, setData] = useState<BitcoinData>(getStoredBitcoinData())
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -43,7 +52,9 @@ export function useBitcoinPrice() {
         }
         
         setData(newData)
-        localStorage.setItem('bitcoinData', JSON.stringify(newData))
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('bitcoinData', JSON.stringify(newData))
+        }
       } catch (err) {
         setError('Failed to fetch Bitcoin price')
         console.error(err)
