@@ -3,6 +3,7 @@ import { useLatestNews } from "@/hooks/useLatestNews";
 import { ArrowRight, Newspaper, TrendingDown, TrendingUp } from "lucide-react";
 import { NewsList } from "./newsList";
 import Link from "next/link";
+import { TradingViewTimeline } from "./TradingViewTimeline";
 
 const news = [
   {
@@ -36,15 +37,19 @@ export function NewsSection() {
             <Newspaper className="h-5 w-5" />
             Últimas Notícias
           </div>
-          <Link href="/news" className="text-xs text-[#00FF94] hover:underline flex items-center gap-1">
+          {/* <Link
+            href="/news"
+            className="text-xs text-[#00FF94] hover:underline flex items-center gap-1"
+          >
             Ver todas
             <ArrowRight className="h-3 w-3" />
-          </Link>
+          </Link> */}
         </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className=" h-[550px]">
         <div className="space-y-4">
-          <NewsList />
+          <TradingViewTimeline />
+          {/* <NewsList /> */}
           {/* {news.map((item, index) => (
             <div
               key={index}

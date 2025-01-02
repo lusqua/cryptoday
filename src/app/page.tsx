@@ -1,10 +1,12 @@
-'use client'
+"use client";
 
 import { TechnicalIndicators } from "@/components/TechnicalIndicators";
 import { NewsSection } from "@/components/NewsSection";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
+import { TradingViewTimeline } from "@/components/TradingViewTimeline";
+import { TechnicalAnalytics } from "@/components/TechinicalAnalytics";
 
 export default function Home() {
   return (
@@ -13,6 +15,7 @@ export default function Home() {
         <Header />
         <HeroSection />
         <TechnicalIndicators />
+        <TechnicalAnalytics />
         <NewsSection />
       </main>
     </ProtectedRoute>

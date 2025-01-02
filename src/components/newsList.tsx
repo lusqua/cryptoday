@@ -1,8 +1,8 @@
 "use client";
 
 import { useLatestNews } from "@/hooks/useLatestNews";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function NewsList() {
   const { news, error } = useLatestNews();
@@ -19,10 +19,7 @@ export function NewsList() {
           className="flex gap-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
         >
           <div className="flex-1">
-            <Link 
-              href={`/news/${index}`}
-              className="group"
-            >
+            <Link href={`/news/${index}`} className="group">
               <h3 className="font-semibold mb-2 group-hover:text-[#00FF94] transition-colors">
                 {item.title}
               </h3>
@@ -31,7 +28,7 @@ export function NewsList() {
               {item.description}
             </p> */}
             <div className="flex items-center gap-2">
-              <Link 
+              <Link
                 href={`/news/${index}`}
                 className="text-xs text-[#00FF94] hover:underline flex items-center gap-1"
               >
@@ -39,7 +36,9 @@ export function NewsList() {
                 <ArrowRight className="h-3 w-3" />
               </Link>
               <span className="text-xs text-muted-foreground">•</span>
-              <span className="text-xs text-muted-foreground">{item.timeAgo}</span>
+              <span className="text-xs text-muted-foreground">
+                {item.timeAgo}
+              </span>
             </div>
           </div>
         </div>

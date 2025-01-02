@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useIndicators } from "@/hooks/useIndicators";
 import { ArrowUpCircle, ArrowDownCircle, Activity } from "lucide-react";
+import { TradingViewComponent } from "./TradingViewComponent";
+import { Suspense } from "react";
 
 const indicators = {
   rsi: { value: 65, status: "buy" },
@@ -23,11 +25,11 @@ export function TechnicalIndicators() {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Activity className="h-5 w-5" />
-          Technical Indicators
+          Indicadores Técnicos
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
+        {/* <div className="space-y-4">
           <div
             className={`rounded-lg p-4 ${
               isBuySignal
@@ -87,8 +89,12 @@ export function TechnicalIndicators() {
                 {indicators.ma.value}
               </span>
             </div>
+
           </div>
-        </div>
+        </div> */}
+        <Suspense fallback={<div>Loading...</div>}>
+          <TradingViewComponent />
+        </Suspense>
       </CardContent>
     </Card>
   );
