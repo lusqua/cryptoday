@@ -15,14 +15,13 @@ export function TechnicalAnalytics() {
         <div className="space-y-4">
           <div className="rounded-lg p-4">
             <p className="text-md flex items-center gap-2">
-              O Bitcoin enfrenta um ponto decisivo: se perder o suporte de $92K,
-              há grande chance de cair para $81K, um nível importante para
-              manter a confiança do mercado. A situação reflete cautela entre
-              investidores devido às incertezas globais, mas, por enquanto, o
-              cenário segue estável acima desse valor.
+              O Bitcoin parece pronto para desafiar novamente a marca de $100K
+              após atingir um fundo em $91K. O sentimento do mercado melhorou,
+              com sinais de recuperação sólida sugerindo um movimento otimista
+              nos próximos dias.
             </p>
             <Link
-              href="https://cryptopotato.com/bitcoin-price-analysis-btc-risks-falling-to-81k-if-this-breaks-below-this-support-level/"
+              href="https://cryptopotato.com/bitcoin-price-analysis-btc-seems-ready-to-challenge-100k-again-after-bottoming-at-91k/"
               className="text-sm text-blue-500"
             >
               Leia mais
